@@ -4,7 +4,7 @@ class ListNode:
         self.val = val
         self.next = next
     def append(self, data):
-        new_node = Node(data)
+        new_node = ListNode(data)
         if not self.head:
             self.head = new_node
         else:
