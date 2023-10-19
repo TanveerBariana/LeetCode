@@ -1,4 +1,5 @@
 # Definition for singly-linked list.
+#add types
 from typing import Optional 
 class ListNode(object):
     def __init__(self, val=0, next=None):
