@@ -32,14 +32,20 @@ class ListNode(object):
             prev = current
             current = next_node
         self.head = prev    
-    
-class Solution(object):
-    def addTwoNumbers(self, l1: Optional[ListNode] , l2: Optional[ListNode]):
-        reversedL1 = l1.reverse()
-        reversedL2 = l2.reverse()
-        result = int(''.join(map(str, reversedL1))) + int(''.join(map(str, reversedL2))) 
-        print(result)       
-        #return IntToReverseList(result)
+     
+class Solution:
+    def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
+        result = ListNode()
+        sum = l1.val+l2.val
+        if l1.next != None and l2.next != None:
+            if(sum < 10 ):
+                result.val = sum 
+                result.next = self.addTwoNumbers(l1.next, l2.next)
+            else:
+                result.val = sum % 10
+                result.next = self.addTwoNumbers(l1.next, l2.next)+1
+        else:
+            return result.val
         return result
     # def reverse(self, listOut: ListNode):
     #         prev = None
@@ -59,7 +65,16 @@ class Solution(object):
                     continue
                 else:
                     return listOut
-l1 = [2,4,3]
-l2 = [5,6,4]
+l1 = ListNode()      
+l2 = ListNode()  
+l1.append(2)
+l1.append(4)
+l1.append(3)
 
-Solution.addTwoNumbers(l1, l2)
+l2.append(5)
+l2.append(6)
+l2.append(4)       
+# l1 = [2,4,3]
+# l2 = [5,6,4]
+
+Solution().addTwoNumbers(l1, l2)
