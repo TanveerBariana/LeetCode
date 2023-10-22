@@ -17,19 +17,19 @@ class NestedInteger:
        """
 
 class NestedIterator:
-    def __init__(self, nestedList: [NestedInteger]):
+    def __init__(self, nestedList: [NestedInteger] = None):
         self.nestedList = nestedList
-    
     def next(self) -> int:
-        if self.hasNext():
-            if self.nestedList.isIntiger():
-                return self.nestedList.getInteger()
-            elif self.nestedList.getList != None:
-                return self.next(self.nestedList.getList)
-        return None
+        if self.nestedList[0].isInteger():
+            return self.nestedList[0].getInteger()
+        elif self.nestedList[0].getList() != None:
+            self.nestedList = self.nestedList[0].getList()
+            return self.next()
+            #return self.nestedList[0].getList()
+
                 
         
     def hasNext(self) -> bool: #Returns true if there are still some integers in the nested list and false otherwise
-        if self.nestedList.isIntiger() or self.nestedList.getList != None:
+        if self.nestedList[0].isInteger() or self.nestedList[0].getList() != None:
             return True
         return False
