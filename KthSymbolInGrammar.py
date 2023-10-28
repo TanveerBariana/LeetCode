@@ -1,7 +1,7 @@
 class Solution:
     def kthGrammar(self, n: int, k: int) -> int:
       evenList = [0, 1, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0]
-      oddList = [1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0, 0, 1]
+      oddList =  [1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0, 0, 1]
       j = k-1 
       if n == 1:
          return 0

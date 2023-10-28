@@ -4,3 +4,5 @@ class Solution:
         while val < n:
             val *= 4
         return (val == n)
+    
+print(Solution().isPowerOfFour(13))
