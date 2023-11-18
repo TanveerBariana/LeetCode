@@ -21,6 +21,8 @@ class Solution:
             ans += 1
             ma += 1  
         return ans   
+
+
 # print(Solution().minIncrementOperations([2,3,0,0,2],4))
 # print(Solution().minIncrementOperations([0,1,3,3],5))
 # print(Solution().minIncrementOperations([1,1,2],1))
