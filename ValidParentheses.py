@@ -3,21 +3,39 @@ class Solution:
         par = 0
         sem = 0
         brak = 0
+        flag = False
         input = list(s)
-        # for j in input:
-        #     if j == '(':
-        #         par +=1
-        #     elif j == ')':
-        #         par -= 1
-        #     elif j == '[':
-        #         brak += 1
-        #     elif j == ']':
-        #         brak -= 1
-        #     elif j == '{':
-        #         sem += 1
-        #     elif j == '}':
-        #         sem -= 1
-        return self.listCheck(input)
+        rightStack = []
+        righVal = None
+        while input.__len__()  > 0:
+            curVal = input.pop()
+            if curVal in ['}', ']', ')']:
+                rightStack.append(curVal)
+            elif curVal in ['{', '[', '(']:
+                if rightStack.__len__() > 0:
+                    rightVal = rightStack.pop()
+                    flag = self.parCheck(curVal, rightVal)
+                    if not flag:
+                        return flag
+                else:
+                    return False
+            
+
+            
+        return (
+            flag
+        )
+    
+    def parCheck(self, curVal, rightVal):
+        if curVal =='{' and rightVal == '}':
+            return True
+        elif curVal =='[' and rightVal == ']':
+            return True
+        elif curVal =='(' and rightVal == ')':
+            return True
+        else:
+            return False
+
     def listCheck(self, l:list ) -> bool:
         if len(l) > 2:
             if l[0] == '(' and l[-1] ==')':
@@ -44,7 +62,7 @@ class Solution:
                 return False
 
 
-print(Solution().isValid('()'))
-print(Solution().isValid('()[]{}'))
-print(Solution().isValid('(]'))
-print(Solution().isValid('([)]'))
+print(Solution().isValid(')(){}'))
+# print(Solution().isValid('()[]{}'))
+# print(Solution().isValid('(]'))
+# print(Solution().isValid('([)]'))
