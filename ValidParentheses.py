@@ -18,13 +18,10 @@ class Solution:
                     if not flag:
                         return flag
                 else:
-                    return False
-            
-
-            
-        return (
-            flag
-        )
+                    return False     
+        return (flag and
+                rightStack.__len__() == 0 
+                )
     
     def parCheck(self, curVal, rightVal):
         if curVal =='{' and rightVal == '}':
