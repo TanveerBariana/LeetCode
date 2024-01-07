@@ -16,7 +16,7 @@ class Solution:
                         occurrences = i
                         break
                 sublist = [dummy[i] for i in range(len(dummy)) if i < occurrences or i > occurrences + len(removeList) - 1]
-                if all(sublist[i] < sublist[i+1] for i in range(len(sublist)-1)):
+                if all(sublist[i] <= sublist[i+1] for i in range(len(sublist)-1)):
                     resultList.append(removeList)
         res = list(map(list, set(map(tuple, resultList))))
         print(resultList)
